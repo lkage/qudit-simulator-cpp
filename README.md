@@ -38,11 +38,29 @@ What this library does **not** do:
 This narrow scope is deliberate. The simulator is the precise, fast numerical
 kernel; everything else lives upstream.
 
-## Status
+## Status (Current Project)
 
 - [x] **Week 1**: Project setup, `QuditState` class with normalized-state invariant
 - [ ] **Week 2**: `PauliOperator` class, single-qubit Pauli matrices, tensor product builder, expectation value
 - [ ] **Week 3**: H₂ Hamiltonian validation, code cleanup, example program
+
+## Roadmap (Beyond the Initial Project)
+
+The current scope is intentionally narrow — exact expectation values on
+single-qudit states, sufficient for reproducing the target paper. Beyond
+that initial goal, this library is intended to grow into a more complete
+qudit simulator. Planned directions:
+
+- Single-qudit gates
+- Circuit representation and unitary evolution
+- Multi-qudit systems and entanglement
+- Noise models 
+- Density matrix representation for mixed states
+- etc
+
+These are study goals, pursued incrementally as understanding deepens. The
+"simulator" in the name reflects this trajectory rather than the current
+feature set.
 
 ## Requirements
 
