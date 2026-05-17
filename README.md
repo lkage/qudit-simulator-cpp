@@ -47,9 +47,9 @@ kernel; everything else lives upstream.
 ## Roadmap (Beyond the Initial Project)
 
 The current scope is intentionally narrow — exact expectation values on
-single-qudit states, sufficient for reproducing the target paper. Beyond
-that initial goal, this library is intended to grow into a more complete
-qudit simulator. Planned directions:
+single-qudit states, sufficient for reproducing the target paper. 
+Beyond that initial goal, this library is intended to grow into a more complete qudit simulator.
+Planned directions:
 
 - Single-qudit gates
 - Circuit representation and unitary evolution
@@ -58,9 +58,8 @@ qudit simulator. Planned directions:
 - Density matrix representation for mixed states
 - etc
 
-These are study goals, pursued incrementally as understanding deepens. The
-"simulator" in the name reflects this trajectory rather than the current
-feature set.
+These are study goals, pursued incrementally as understanding deepens.
+The "simulator" in the name reflects this trajectory rather than the current feature set.
 
 ## Requirements
 

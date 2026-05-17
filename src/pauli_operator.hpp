@@ -30,4 +30,12 @@ namespace pauli {
     const PauliOperator& Z();
 }
 
+// 두 Pauli operator의 텐서곱. 라벨은 a.label() + b.label()
+PauliOperator tensor_product(const PauliOperator& a, const PauliOperator& b);
+
+// 문자열 라벨에서 multi-qubit Pauli string 생성
+// 예: "IZXY" -> I ⊗ Z ⊗ X ⊗ Y (16x16 행렬)
+// 빈 문자열이나 'I','X','Y','Z' 외 문자는 invalid_argument
+PauliOperator pauli_string(const std::string& label);
+
 } // namespace sqdvqe

@@ -1,5 +1,6 @@
 #include "pauli_operator.hpp"
 #include <stdexcept>
+#include <unsupported/Eigen/KroneckerProduct>
 
 namespace sqdvqe {
 
@@ -64,5 +65,38 @@ const PauliOperator& Z() {
 }
 
 } // namespace pauli
+
+PauliOperator tensor_product(const PauliOperator& a, const PauliOperator& b) {
+    Matrix result = Eigen::kroneckerProduct(a.matrix(), b.matrix());
+    return PauliOperator(result, a.label() + b.label());
+}
+
+PauliOperator pauli_string(const std::string& label) {
+    if (label.empty()) {
+        throw std::invalid_argument("Pauli string label cannot be empty");
+    }
+    
+    auto char_to_pauli = [](char c) -> const PauliOperator& {
+        switch (c) {
+            case 'I': return pauli::I();
+            case 'X': return pauli::X();
+            case 'Y': return pauli::Y();
+            case 'Z': return pauli::Z();
+            default:
+                throw std::invalid_argument(
+                    std::string("Invalid Pauli character: ") + c);
+        }
+    };
+    
+    // 첫 문자로 초기화
+    PauliOperator result = char_to_pauli(label[0]);
+    
+    // 나머지 문자들을 텐서곱으로 누적
+    for (size_t i = 1; i < label.size(); ++i) {
+        result = tensor_product(result, char_to_pauli(label[i]));
+    }
+    
+    return result;
+}
 
 } // namespace sqdvqe
