@@ -41,7 +41,7 @@ kernel; everything else lives upstream.
 ## Status (Current Project)
 
 - [x] **Week 1**: Project setup, `QuditState` class with normalized-state invariant
-- [ ] **Week 2**: `PauliOperator` class, single-qubit Pauli matrices, tensor product builder, expectation value
+- [x] **Week 2**: `PauliOperator` class, single-qubit Pauli matrices, tensor product builder, expectation value
 - [ ] **Week 3**: H₂ Hamiltonian validation, code cleanup, example program
 
 ## Roadmap (Beyond the Initial Project)
@@ -81,20 +81,6 @@ mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Debug ..
 cmake --build .
 ctest --output-on-failure
-```
-
-## Project Structure
-
-```
-qudit-simulator-cpp/
-├── CMakeLists.txt
-├── README.md
-├── src/
-│   ├── qudit_state.{hpp,cpp}
-│   └── pauli_operator.{hpp,cpp}    (week 2)
-└── tests/
-    ├── test_qudit_state.cpp
-    └── test_pauli_operator.cpp     (week 2)
 ```
 
 ## Design Notes

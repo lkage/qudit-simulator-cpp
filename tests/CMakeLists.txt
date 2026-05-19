@@ -10,6 +10,12 @@ target_link_libraries(test_pauli_operator
     PRIVATE qudit_simulator_core GTest::gtest GTest::gtest_main
 )
 
+add_executable(test_expectation test_expectation.cpp)
+target_link_libraries(test_expectation
+    PRIVATE qudit_simulator_core GTest::gtest GTest::gtest_main
+)
+
 include(GoogleTest)
 gtest_discover_tests(test_qudit_state)
 gtest_discover_tests(test_pauli_operator)
+gtest_discover_tests(test_expectation)
